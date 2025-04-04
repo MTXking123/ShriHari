@@ -1,4 +1,5 @@
 import React from "react";
+import FlipCard from "@/components/Flipper/Flipper";
 
 
 const services = [
