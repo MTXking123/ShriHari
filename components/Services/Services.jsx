@@ -1,48 +1,17 @@
+"use client"; // Only needed if using Next.js 13+ App Router
+
 import React from "react";
-import FlipCard from "../Flipper/Flipper"; // Import the FlipCard component
+import Image from "next/image";
+import FlipCard from "../Flipper/Flipper"; // Adjust path if necessary
 
 const services = [
-  {
-    title: "General Checkup",
-    description: "Routine health checkups to keep you in good shape.",
-    image: "/cornea.jpg", // Add your image path here
-  },
-  {
-    title: "Pediatrics",
-    description: "Specialized care for infants and children.",
-    image: "/cataract.jpg",
-  },
-  {
-    title: "Emergency Services",
-    description: "24/7 emergency care with advanced facilities.",
-    image: "/glaucoma.jpg",
-  },
-  {
-    title: "Emergency Services",
-    description: "24/7 emergency care with advanced facilities.",
-    image: "/laser.jpg",
-  },
-  {
-    title: "Emergency Services",
-    description: "24/7 emergency care with advanced facilities.",
-    image: "/retina.jpg",
-  },
-  {
-    title: "Emergency Services",
-    description: "24/7 emergency care with advanced facilities.",
-    image: "/squint.jpg",
-  },
-  {
-    title: "Emergency Services",
-    description: "24/7 emergency care with advanced facilities.",
-    image: "/glaucoma.jpg",
-  },
-  {
-    title: "Emergency Services",
-    description: "24/7 emergency care with advanced facilities.",
-    image: "/glaucoma.jpg",
-  },
-
+  { title: "General Checkup", description: "Routine health checkups to keep you in good shape.", image: "/cornea.jpg" },
+  { title: "Pediatrics", description: "Specialized care for infants and children.", image: "/cataract.jpg" },
+  { title: "Emergency Services", description: "24/7 emergency care with advanced facilities.", image: "/glaucoma.jpg" },
+  { title: "Laser Treatment", description: "Advanced laser eye treatments.", image: "/laser.jpg" },
+  { title: "Retina Care", description: "Expert retina disease management.", image: "/retina.jpg" },
+  { title: "Squint Correction", description: "Specialized care for squint-related issues.", image: "/squint.jpg" },
+  { title: "Glaucoma Treatment", description: "Advanced treatment for glaucoma.", image: "/glaucoma.jpg" },
 ];
 
 const Services = () => {
@@ -52,14 +21,12 @@ const Services = () => {
         <h2 className="text-3xl sm:text-4xl font-bold text-center mb-12">
           Our Services
         </h2>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 justify-center">
+
+        {/* Mobile: Scrollable horizontally | Desktop: Grid layout */}
+        <div className="flex space-x-4 overflow-x-auto sm:grid sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:overflow-visible no-scrollbar">
           {services.map((service, index) => (
-            <div key={index} className="flex justify-center">
-              <FlipCard
-                title={service.title}
-                description={service.description}
-                image={service.image}
-              />
+            <div key={index} className="flex-shrink-0 w-64 sm:w-auto px-2">
+              <FlipCard title={service.title} description={service.description} image={service.image} />
             </div>
           ))}
         </div>
@@ -69,4 +36,5 @@ const Services = () => {
 };
 
 export default Services;
+
 
