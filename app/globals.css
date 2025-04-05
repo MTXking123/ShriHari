@@ -5,5 +5,13 @@
     background-color: rgb(222 226 255 / 50%);
 }
 
-
+/* Hide scrollbar on mobile */
+.no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+  }
+  
   
