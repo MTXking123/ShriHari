@@ -25,7 +25,7 @@ const FlipCard = ({ image, title, description }) => {
         </div>
 
         {/* Back Side with Description */}
-        <div className="absolute w-full h-full bg-blue-500 text-white flex items-center justify-center rounded-xl rotate-y-180 backface-hidden p-4">
+        <div className="absolute w-full h-full bg-sky-700 text-white flex items-center justify-center rounded-xl rotate-y-180 backface-hidden p-4">
           <p className="text-center">{description}</p>
         </div>
       </motion.div>

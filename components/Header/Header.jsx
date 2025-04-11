@@ -19,10 +19,10 @@ const Header = () => {
 
   return (
     <motion.nav
-      initial={{ opacity: 0, y: -50 }}
+    initial={{ opacity: 0, y: -50 }}
       animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.5 }}
-      className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
+      transition={{ duration: 0.5 }}  
+      className={`fixed top-0 left-0 w-full z-50 ${
         isScrolled ? "bg-white/90 shadow-lg backdrop-blur-md" : "bg-white shadow-md"
       }`}
     >

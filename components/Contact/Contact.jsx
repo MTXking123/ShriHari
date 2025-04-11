@@ -1,140 +1,111 @@
-'use client'
-import React , { useState, useEffect, useRef }from 'react';
+'use client';
+import { motion, AnimatePresence } from 'framer-motion';
+import React, { useState } from 'react';
 
+export default function Contact() {
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    date: '',
+    location: '',
+  });
 
-export default function Contact  (){
-  const canvasRef = useRef(null);
-  const [formData, setFormData] = useState({ name: "", email: "", date: "", location: "" });
-  useEffect(() => {
-    const canvas = canvasRef.current;
-    if (!canvas) return; // Prevent error if canvasRef is null
-  
-    const ctx = canvas.getContext("2d");
-    if (!ctx) return; // Prevent error if getContext fails
-  
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
-    
-    let particles = [];
-  
-    class Particle {
-      constructor(x, y, size, speedX, speedY) {
-        this.x = x;
-        this.y = y;
-        this.size = size;
-        this.speedX = speedX;
-        this.speedY = speedY;
-      }
-      update() {
-        this.x += this.speedX;
-        this.y += this.speedY;
-        if (this.x > canvas.width || this.x < 0) this.speedX *= -1;
-        if (this.y > canvas.height || this.y < 0) this.speedY *= -1;
-      }
-      draw() {
-        ctx.beginPath();
-        ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-        ctx.fillStyle = "rgba(169, 149, 232, 0.5)";
-        ctx.fill();
-        ctx.closePath();
-      }
-    }
-  
-    function initParticles() {
-      particles = [];
-      for (let i = 0; i < 50; i++) {
-        let size = Math.random() * 5 + 2;
-        let x = Math.random() * canvas.width;
-        let y = Math.random() * canvas.height;
-        let speedX = (Math.random() - 0.5) * 2;
-        let speedY = (Math.random() - 0.5) * 2;
-        particles.push(new Particle(x, y, size, speedX, speedY));
-      }
-    }
-  
-    function animate() {
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
-      particles.forEach((particle) => {
-        particle.update();
-        particle.draw();
-      });
-      requestAnimationFrame(animate);
-    }
-  
-    initParticles();
-    animate();
-  
-    window.addEventListener("resize", () => {
-      canvas.width = window.innerWidth;
-      canvas.height = window.innerHeight;
-      initParticles();
-    });
-  
-    return () => window.removeEventListener("resize", () => {
-      canvas.width = window.innerWidth;
-      canvas.height = window.innerHeight;
-      initParticles();
-    });
-  
-  }, []);
-  
-  
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
-  
+
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log("Appointment submitted:", formData);
-    alert("Appointment booked successfully!");
+    console.log('Appointment submitted:', formData);
+    alert('Appointment booked successfully!');
   };
-  
+
   return (
-    <div className="max-w-md mx-auto p-6 bg-white shadow-lg rounded-lg mt-10">
-    <h2 className="text-xl font-semibold text-gray-700 mb-4">Book an Appointment</h2>
-    <form onSubmit={handleSubmit} className="space-y-4">
-      <input 
-        type="text" 
-        name="name" 
-        placeholder="Your Name" 
-        className="w-full p-2 border rounded" 
-        value={formData.name} 
-        onChange={handleChange} 
-        required 
-      />
-      <input 
-        type="email" 
-        name="email" 
-        placeholder="Your Email" 
-        className="w-full p-2 border rounded" 
-        value={formData.email} 
-        onChange={handleChange} 
-        required 
-      />
-      <input 
-        type="date" 
-        name="date" 
-        className="w-full p-2 border rounded" 
-        value={formData.date} 
-        onChange={handleChange} 
-        required 
-      />
-      <input 
-        type="text" 
-        name="location" 
-        placeholder="Location" 
-        className="w-full p-2 border rounded" 
-        value={formData.location} 
-        onChange={handleChange} 
-        required 
-      />
-      <button 
-        type="submit" 
-        className="w-full bg-blue-500 text-white p-2 rounded hover:bg-blue-600"
+    <AnimatePresence>
+      <motion.div
+        key="contact-page"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        exit={{ opacity: 0 }}
+        className="relative min-h-screen flex items-center justify-center px-4 overflow-hidden bg-white font-inter"
       >
-        Book Now
-      </button>
-    </form>
-  </div>
-);
+        {/* Animated Gradient Background */}
+        <motion.div
+          className="absolute inset-0 bg-gradient-to-r from-sky-300 via-purple-200 to-pink-200 opacity-30"
+          animate={{ scale: [1, 1.2, 1] }}
+          transition={{ duration: 6, repeat: Infinity, ease: 'easeInOut' }}
+        />
+
+        {/* Rotating Radial Light */}
+        <motion.div
+          className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(255,255,255,0.4)_0%,rgba(255,255,255,0)_70%)]"
+          animate={{ rotate: [0, 360] }}
+          transition={{ duration: 25, repeat: Infinity, ease: 'linear' }}
+        />
+
+        {/* Contact Form */}
+        <motion.div
+          className="relative z-10 max-w-lg w-full bg-white/80 backdrop-blur-lg p-8 rounded-2xl shadow-2xl border border-white/60"
+          initial={{ y: 30, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          transition={{ duration: 0.6 }}
+        >
+          <h2 className="text-2xl font-bold text-sky-700 mb-6 text-center">
+            Book an Appointment
+          </h2>
+          <form onSubmit={handleSubmit} className="space-y-4">
+            <motion.input
+              type="text"
+              name="name"
+              placeholder="Full Name"
+              className="w-full p-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-sky-400 outline-none shadow-md"
+              value={formData.name}
+              onChange={handleChange}
+              required
+              whileFocus={{ scale: 1.01 }}
+            />
+            <motion.input
+              type="email"
+              name="email"
+              placeholder="Email Address"
+              className="w-full p-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-sky-400 outline-none shadow-md"
+              value={formData.email}
+              onChange={handleChange}
+              required
+              whileFocus={{ scale: 1.01 }}
+            />
+            <motion.input
+              type="date"
+              name="date"
+              className="w-full p-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-sky-400 outline-none shadow-md"
+              value={formData.date}
+              onChange={handleChange}
+              required
+              whileFocus={{ scale: 1.01 }}
+            />
+            <motion.input
+              type="text"
+              name="location"
+              placeholder="Preferred Location"
+              className="w-full p-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-sky-400 outline-none shadow-md"
+              value={formData.location}
+              onChange={handleChange}
+              required
+              whileFocus={{ scale: 1.01 }}
+            />
+            <motion.button
+              type="submit"
+              className="w-full bg-sky-600 hover:bg-sky-700 text-white font-medium py-3 rounded-lg shadow-lg transition duration-200 hover:shadow-xl"
+              whileTap={{ scale: 0.97 }}
+            >
+              Book Now
+            </motion.button>
+          </form>
+        </motion.div>
+      </motion.div>
+    </AnimatePresence>
+  );
 }
+
+
+
