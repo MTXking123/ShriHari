@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
-import FlipCard from "../Flipper/Flipcard";
+import FlipCard from "../Flipper/Flipper";
 import DetailCard from "../Flipper/DetailCard"; // This is the popup component
 
 const services = [
