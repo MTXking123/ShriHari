@@ -1,8 +1,8 @@
 "use client";
 
 import React, { useState } from "react";
-import FlipCard from "../Flipper/Flipcard";
-import DetailCard from "../Flipper/DetailCard"; // This is the popup component
+import FlipCard from "@/components/Flipper/Flipcard";
+import DetailCard from "@/components/Flipper/detailcard"; // This is the popup component
 
 const services = [
   { title: "General Checkup", description: "Routine health checkups to keep you in good shape.", image: "/cornea.jpg" },
@@ -48,6 +48,3 @@ const Services = () => {
 };
 
 export default Services;
-
-
-

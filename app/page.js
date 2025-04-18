@@ -26,10 +26,10 @@ export default function Home() {
       />
       
       <div className="relative w-full">
-        <Header />
+        
         <Slider />
-        <Hero />
         <Services />
+        <Hero />
         <About />
         <Footer />
       </div>

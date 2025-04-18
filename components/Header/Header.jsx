@@ -34,7 +34,7 @@ const Header = () => {
         {/* Desktop Menu */}
         <div className="hidden md:flex space-x-6">
           <Link href="/" className="text-gray-600 hover:text-blue-600">Home</Link>
-          <Link href="/#services" className="text-gray-600 hover:text-blue-600">Services</Link>
+          <Link href="/Services" className="text-gray-600 hover:text-blue-600">Services</Link>
           <Link href="/about" className="text-gray-600 hover:text-blue-600">About</Link>
           <Link href="/contact" className="text-gray-600 hover:text-blue-600">Contact</Link>
         </div>

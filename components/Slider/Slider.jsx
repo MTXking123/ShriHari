@@ -18,8 +18,7 @@ const images = [
 
 const FuturisticCarousel = () => {
   return (
-    <div className="relative flex justify-center items-center w-full bg-black px-0 pt-16"> 
-      {/* pt-16 assumes your navbar is fixed and is h-16 (4rem) */}
+    <div className="relative flex justify-center items-center w-full bg-black pt-16 px-0">
       <motion.div
         initial={{ opacity: 0, y: 50 }}
         animate={{ opacity: 1, y: 0 }}
@@ -27,11 +26,11 @@ const FuturisticCarousel = () => {
         className="w-full"
       >
         <Swiper
-          effect={'fade'}
-          grabCursor={true}
-          centeredSlides={true}
+          effect="fade"
+          grabCursor
+          centeredSlides
           slidesPerView={1}
-          loop={true}
+          loop
           autoplay={{ delay: 3000, disableOnInteraction: false }}
           fadeEffect={{ crossFade: true }}
           navigation={{
@@ -44,7 +43,7 @@ const FuturisticCarousel = () => {
         >
           {images.map((src, index) => (
             <SwiperSlide key={index} className="w-full">
-              <div className="relative w-full h-[calc(100vh-4rem)]"> {/* Adjusts for fixed navbar */}
+              <div className="relative w-full h-[60vh] md:h-[75vh] ">
                 <img
                   src={src}
                   alt={`Slide ${index + 1}`}
@@ -54,8 +53,9 @@ const FuturisticCarousel = () => {
               </div>
             </SwiperSlide>
           ))}
-          <div className="swiper-button-next h-9 w-9"></div>
-          <div className="swiper-button-prev h-9 w-9"></div>
+
+          <div className="swiper-button-next h-9 w-9 text-white"></div>
+          <div className="swiper-button-prev h-9 w-9 text-white"></div>
         </Swiper>
       </motion.div>
     </div>
@@ -63,5 +63,3 @@ const FuturisticCarousel = () => {
 };
 
 export default FuturisticCarousel;
-
-  
