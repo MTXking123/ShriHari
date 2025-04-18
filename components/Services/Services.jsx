@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import FlipCard from "../Flipper/Flipper";
-import DetailCard from "../Flipper/DetailCard"; // This is the popup component
+import DetailCard from "../Flipper/Detailcard"; // This is the popup component
 
 const services = [
   { title: "General Checkup", description: "Routine health checkups to keep you in good shape.", image: "/cornea.jpg" },
