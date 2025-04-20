@@ -24,9 +24,9 @@ const Services = () => {
           Our Services
         </h2>
 
-        <div className="flex space-x-4 overflow-x-auto sm:grid sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:overflow-visible no-scrollbar">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {services.map((service, index) => (
-            <div key={index} className="flex-shrink-0 w-64 sm:w-auto px-2">
+            <div key={index} className="px-2">
               <FlipCard
                 title={service.title}
                 image={service.image}

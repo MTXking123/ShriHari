@@ -18,7 +18,7 @@ const images = [
 
 const FuturisticCarousel = () => {
   return (
-    <div className="relative flex justify-center items-center w-full bg-black pt-16 px-0">
+    <div className="relative flex justify-center items-center w-full bg-black  px-0">
       <motion.div
         initial={{ opacity: 0, y: 50 }}
         animate={{ opacity: 1, y: 0 }}
