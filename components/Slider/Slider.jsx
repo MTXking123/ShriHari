@@ -7,6 +7,7 @@ import 'swiper/css/effect-fade';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import { motion } from 'framer-motion';
+import WhatsAppButton from '../WhatsappButton/WhatsappButton';
 
 const images = [
   './slide1.png',
@@ -18,7 +19,7 @@ const images = [
 
 const FuturisticCarousel = () => {
   return (
-    <div className="relative flex justify-center items-center w-full bg-black  px-0">
+    <div className="relative flex justify-center items-center w-full bg-black px-0">
       <motion.div
         initial={{ opacity: 0, y: 50 }}
         animate={{ opacity: 1, y: 0 }}
@@ -43,7 +44,7 @@ const FuturisticCarousel = () => {
         >
           {images.map((src, index) => (
             <SwiperSlide key={index} className="w-full">
-              <div className="relative w-full h-[60vh] md:h-[75vh] ">
+              <div className="relative w-full h-[60vh] md:h-[75vh]">
                 <img
                   src={src}
                   alt={`Slide ${index + 1}`}
@@ -58,8 +59,14 @@ const FuturisticCarousel = () => {
           <div className="swiper-button-prev h-9 w-9 text-white"></div>
         </Swiper>
       </motion.div>
+
+      {/* ✅ WhatsApp Button positioned absolutely in bottom-right of carousel */}
+      <div className="absolute bottom-6 right-6 z-50">
+        <WhatsAppButton />
+      </div>
     </div>
   );
 };
 
 export default FuturisticCarousel;
+
