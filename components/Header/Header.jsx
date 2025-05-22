@@ -1,4 +1,5 @@
-'use client';
+"use client";
+
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -25,8 +26,49 @@ const mobileMenuVariants = {
   exit: { opacity: 0, height: 0, transition: { duration: 0.2 } }
 };
 
+const servicesList = [
+  {
+    category: "Cataract Services",
+    links: ["MICS Foldable ICL", "FLACS(ROBOTIC) Foldable ICL"]
+  },
+  {
+    category: "Referactive Services",
+    links: [
+      "LASIK | EPI-LASIK | PRK",
+      "CONTURA VISION",
+      "SILK | SMILE",
+      "ICL (Implantable Collamer Lens)"
+    ]
+  },
+  {
+    category: "CORNEA SERVICES",
+    links: [
+      "Collagen Cross Linking (C3R)",
+      "Scleral Contact Lens",
+      "Corneal Transplant (PK, DSEK, DALK)"
+    ]
+  },
+  {
+    category: "Retina Services",
+    links: ["Diagnostic & Therapeutic"]
+  },
+  {
+    category: "Glaucoma Services",
+    links: []
+  },
+  {
+    category: "Paldiatric Opthalmology",
+    links: ["Myopia clinic", "Squint clinic"]
+  },
+  {
+    category: "Oculoplasty Services",
+    links: ["Ptosis", "Blepheroplasty", "Laerimal gland & Laerimal duet diseases"]
+  }
+];
+
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [dropdownOpen, setDropdownOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const pathname = usePathname();
 
@@ -59,17 +101,47 @@ const Header = () => {
           transition={{ duration: 0.5, ease: "backOut" }}
         />
 
-        <div className="hidden md:flex space-x-6">
-          {["/", "/Services", "/about", "/contact"].map((path, i) => (
-            <motion.div key={path} custom={i} variants={linkVariants} initial="hidden" animate="visible">
+        <div className="hidden md:flex flex-grow justify-center space-x-10 items-center text-lg">
+          {[{ name: "Home", href: "/" }, { name: "About", href: "/about" }, { name: "Contact", href: "/contact" }].map((link, i) => (
+            <motion.div key={link.href} custom={i} variants={linkVariants} initial="hidden" animate="visible">
               <Link
-                href={path}
-                className="text-gray-600 hover:text-sky-700 transition duration-300"
+                href={link.href}
+                className="text-gray-700 hover:text-sky-700 transition duration-300 font-medium"
               >
-                {path === "/" ? "Home" : path.replace("/", "").charAt(0).toUpperCase() + path.slice(2)}
+                {link.name}
               </Link>
             </motion.div>
           ))}
+
+          {/* Services Dropdown */}
+          <div className="relative group">
+            <Link
+              href="/Services"
+              onClick={() => setDropdownOpen(false)}
+              className="text-gray-700 hover:text-sky-700 transition duration-300 font-medium"
+            >
+              Services
+            </Link>
+            <div className="absolute top-full left-0 mt-2 hidden group-hover:block bg-white border rounded-lg shadow-lg w-[300px] z-50">
+              {servicesList.map((service) => (
+                <div key={service.category} className="border-b last:border-b-0 px-4 py-2">
+                  <p className="font-semibold text-sky-700">{service.category}</p>
+                  <ul className="pl-4 mt-1 space-y-1">
+                    {service.links.map((sub, i) => (
+                      <li key={i}>
+                        <Link
+                          href={`/Services/${sub.toLowerCase().replace(/\s|\|/g, "-")}`}
+                          className="text-gray-600 hover:text-blue-600 text-sm"
+                        >
+                          {sub}
+                        </Link>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              ))}
+            </div>
+          </div>
         </div>
 
         <button className="md:hidden text-gray-600" onClick={() => setIsOpen(!isOpen)}>
@@ -86,19 +158,19 @@ const Header = () => {
             exit="exit"
             className="md:hidden bg-white shadow-md overflow-hidden"
           >
-            {["/", "/Services", "/about", "/contact"].map((path, i) => (
+            {[{ name: "Home", href: "/" }, { name: "Services", href: "/Services" }, { name: "About", href: "/about" }, { name: "Contact", href: "/contact" }].map((link, i) => (
               <motion.div
-                key={path}
+                key={link.href}
                 custom={i}
                 variants={linkVariants}
                 initial="hidden"
                 animate="visible"
               >
                 <Link
-                  href={path}
-                  className="block px-6 py-3 text-gray-600 hover:bg-blue-100 transition-colors"
+                  href={link.href}
+                  className="block px-6 py-3 text-gray-600 hover:bg-blue-100 transition-colors text-lg font-medium"
                 >
-                  {path === "/" ? "Home" : path.replace("/", "").charAt(0).toUpperCase() + path.slice(2)}
+                  {link.name}
                 </Link>
               </motion.div>
             ))}
@@ -110,4 +182,3 @@ const Header = () => {
 };
 
 export default Header;
-

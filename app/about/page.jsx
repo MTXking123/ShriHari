@@ -1,87 +1,58 @@
 'use client';
-import { motion, AnimatePresence } from 'framer-motion';
-import { useState, useEffect } from 'react';
+import { motion } from 'framer-motion';
 
-const cards = [
-  { title: 'About Me', info: 'A passionate developer who loves building amazing applications.' },
-  { title: 'Skills', info: 'Proficient in JavaScript, React, Tailwind, and more.' },
-  { title: 'Experience', info: '3+ years in web development, working with startups and enterprises.' },
-  { title: 'Projects', info: 'Developed multiple web applications with modern tech stacks.' },
-  { title: 'Contact', info: 'Feel free to reach out via email or social media.' },
+const doctors = [
+  {
+    name: 'Dr Rohini Grover',
+    qualification: 'Eye specialist',
+    image: '/doctor1.jpg', // Replace with actual image paths
+  },
+  {
+    name: 'Dr Shilpa Taneja Mittel',
+    qualification: 'Eye specialist',
+    image: '/doctor2.jpg',
+  },
+  {
+    name: 'Dr. Vivek Sharma',
+    qualification: 'Eye specialist',
+    image: '/doctor3.jpg',
+  },
 ];
 
-export default function AboutCards() {
-  const [hoveredIndex, setHoveredIndex] = useState(null);
-
-  useEffect(() => {
-    const handleMouseMove = (e) => {
-      // Optional: Add mouse tracking logic here
-    };
-    window.addEventListener('mousemove', handleMouseMove);
-    return () => window.removeEventListener('mousemove', handleMouseMove);
-  }, []);
-
+export default function About() {
   return (
-    <AnimatePresence>
-      <motion.div
-        key="about-page"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        exit={{ opacity: 0 }}
-        className="relative overflow-hidden bg-white min-h-screen flex flex-col items-center justify-center p-10 font-inter"
-      >
-        {/* Animated Backgrounds */}
-        <motion.div
-          className="absolute inset-0 bg-gradient-to-r from-sky-300 via-purple-200 to-pink-200 opacity-30"
-          animate={{ scale: [1, 1.2, 1] }}
-          transition={{ duration: 5, repeat: Infinity, ease: 'easeInOut' }}
-        />
-        <motion.div
-          className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(255,255,255,0.4)_0%,rgba(255,255,255,0)_70%)]"
-          animate={{ rotate: [0, 360] }}
-          transition={{ duration: 20, repeat: Infinity, ease: 'linear' }}
-        />
+    <section className="py-16 bg-gradient-to-r from-sky-50 via-white to-pink-50">
+      <div className="max-w-6xl mx-auto px-4 text-center">
+        <motion.h2
+          className="text-3xl font-bold text-sky-700 mb-10"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+        >
+          Meet Our Specialists
+        </motion.h2>
 
-        {/* Floating Cards */}
-        <div className="flex flex-wrap justify-center gap-6 relative z-10">
-          {cards.map((card, index) => (
+        <div className="grid gap-10 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+          {doctors.map((doc, index) => (
             <motion.div
               key={index}
-              layout
-              onHoverStart={() => setHoveredIndex(index)}
-              onHoverEnd={() => setHoveredIndex(null)}
-              className="relative w-64 bg-white/80 text-gray-900 rounded-2xl shadow-xl cursor-pointer overflow-hidden border border-gray-300 backdrop-blur-lg"
-              animate={{ height: hoveredIndex === index ? 'auto' : '10rem' }}
-              transition={{ duration: 0.4, ease: 'easeInOut' }}
+              className="bg-white p-6 rounded-2xl shadow-lg hover:shadow-2xl transition duration-300"
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: index * 0.2 }}
             >
-              <AnimatePresence initial={false} mode="wait">
-                {hoveredIndex !== index ? (
-                  <motion.div
-                    key="title"
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    exit={{ opacity: 0 }}
-                    className="flex items-center justify-center h-40 text-xl font-semibold p-4 text-center"
-                  >
-                    {card.title}
-                  </motion.div>
-                ) : (
-                  <motion.div
-                    key="info"
-                    initial={{ opacity: 0, y: 10 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    exit={{ opacity: 0, y: -10 }}
-                    className="p-4 text-sm text-center"
-                  >
-                    {card.info}
-                  </motion.div>
-                )}
-              </AnimatePresence>
+              <img
+                src={doc.image}
+                alt={doc.name}
+                className="w-50 h-50 object-cover rounded-full mx-auto mb-4 border-4 border-sky-100"
+              />
+              <h3 className="text-xl font-semibold text-sky-800">{doc.name}</h3>
+              <p className="text-gray-600 mt-1">{doc.qualification}</p>
             </motion.div>
           ))}
         </div>
-      </motion.div>
-    </AnimatePresence>
+      </div>
+    </section>
   );
 }
 

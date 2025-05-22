@@ -21,7 +21,7 @@ const Services = () => {
     <section id="services" className="py-16 px-4 sm:px-8 lg:px-16 relative">
       <div className="max-w-6xl mx-auto">
         <h2 className="text-3xl sm:text-4xl font-bold text-center mb-12 text-sky-700">
-          Our Services
+          Our Specialities
         </h2>
 
         <div className="flex space-x-4 overflow-x-auto sm:grid sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:overflow-visible no-scrollbar">

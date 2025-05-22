@@ -5,8 +5,11 @@ import Services from "../components/Services/Services";
 import About from "../components/About/About";
 import Contact from "../components/Contact/Contact";
 import Footer from "../components/Footer/Footer";
+import AnimatedCounter from "../components/Counter/Counter"
 import Slider from "../components/Slider/Slider";
 import { motion } from "framer-motion";
+import AppointmentPopup from "../components/PopUp/PopUp";
+
 
 // Animation variants
 const fadeUpVariant = {
@@ -28,17 +31,20 @@ export default function Home() {
         animate={{ rotate: [0, 360] }}
         transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
       />
+     
 
       <div className="relative w-full">
         <motion.div
           variants={fadeUpVariant}
           initial="hidden"
           whileInView="visible"
+          className="relative"
           viewport={{ once: true, amount: 0.2 }}
         >
+
           <Slider />
         </motion.div>
-
+ <AnimatedCounter/>
         <motion.div
           variants={fadeUpVariant}
           initial="hidden"

@@ -8,6 +8,7 @@ import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import { motion } from 'framer-motion';
 import WhatsAppButton from '../WhatsappButton/WhatsappButton';
+import AppointmentPopup from "../../components/PopUp/PopUp"
 
 const images = [
   './slide1.png',
@@ -64,6 +65,8 @@ const FuturisticCarousel = () => {
       <div className="absolute bottom-6 right-6 z-50">
         <WhatsAppButton />
       </div>
+       <AppointmentPopup />
+      
     </div>
   );
 };

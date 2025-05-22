@@ -1,8 +1,13 @@
 .parallax-hero {
     background-image: url('/slide5.png'); /* Replace with your actual image path */
-    background-attachment: fixed;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
+background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-attachment: scroll;
+    
   }
   

@@ -1,70 +1,58 @@
 'use client';
+import Image from 'next/image';
+import { motion } from 'framer-motion';
+import { ArrowRight } from 'lucide-react';
 
-import React from "react";
-import { motion } from "framer-motion";
-import Link from "next/link";
-
-const AboutDoctor = () => {
+export default function AboutDrVivekMinimal() {
   return (
-    <section className="relative min-h-screen flex flex-col lg:flex-row items-center justify-center px-6 py-12 overflow-hidden bg-white">
-
-      {/* Animated Gradient Background */}
-      <motion.div
-        className="absolute inset-0 bg-gradient-to-r from-sky-300 via-purple-200 to-pink-200 opacity-30"
-        animate={{ scale: [1, 1.2, 1] }}
-        transition={{ duration: 6, repeat: Infinity, ease: 'easeInOut' }}
-      />
-      <motion.div
-        className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(255,255,255,0.4)_0%,rgba(255,255,255,0)_70%)]"
-        animate={{ rotate: [0, 360] }}
-        transition={{ duration: 25, repeat: Infinity, ease: 'linear' }}
-      />
-
-      {/* Doctor Image */}
-      <motion.div
-        initial={{ opacity: 0, x: -50 }}
-        animate={{ opacity: 1, x: 0 }}
-        transition={{ duration: 1 }}
-        className="z-10 w-full lg:w-1/3 flex justify-center"
-      >
-        <img 
-          src="/doctorvivek.jpg" 
-          alt="Dr. John Doe" 
-          className="rounded-lg shadow-lg w-72 h-72 object-cover border-4 border-sky-200"
-        />
-      </motion.div>
-
-      {/* Doctor Info */}
-      <motion.div
-        initial={{ opacity: 0, x: 50 }}
-        animate={{ opacity: 1, x: 0 }}
-        transition={{ duration: 1 }}
-        className="z-10 w-full lg:w-2/3 mt-8 lg:mt-0 lg:pl-12 text-center lg:text-left bg-white/80 backdrop-blur-lg p-6 rounded-2xl border border-white/60 shadow-xl"
-      >
-        <h2 className="text-3xl font-bold text-sky-700">Dr. Vivek Sharma</h2>
-        <p className="text-lg text-gray-600 mt-2">Ophthalmologist | 15+ Years of Experience</p>
-
-        <p className="text-gray-700 mt-4 leading-relaxed">
-          Dr. John Doe is a highly accomplished <strong>cardiologist</strong> known for his groundbreaking work in <strong>heart disease research</strong>. 
-          With over <strong>20 years of experience</strong>, he has dedicated his career to providing <strong>exceptional patient care</strong> 
-          and pioneering new treatments in the field of cardiology.
+    <motion.div
+      initial={{ opacity: 0, y: 40 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.6 }}
+      className="min-h-screen bg-white text-gray-900 px-6 md:px-20 py-16 flex flex-col lg:flex-row items-center justify-between"
+    >
+      {/* Left Content */}
+      <div className="max-w-xl space-y-6">
+        <p className="uppercase tracking-widest text-sm text-gray-400">— We Are</p>
+        <h1 className="text-4xl md:text-5xl font-bold">Shrihari Eye Care & Laser Centre</h1>
+        <p className="text-lg text-gray-600">
+          Led by <strong>Dr. Vivek Sharma</strong>, a pioneering eye specialist delivering advanced eye surgeries, compassionate consultations, and trusted vision care to over <strong>40,000+ patients</strong>.
         </p>
 
-        
-
-        <p className="mt-6 text-gray-700 leading-relaxed">
-          Dr. Doe believes in a <strong>patient-first approach</strong>, combining advanced medical techniques with <strong>compassionate care</strong>.
-          His mission is to <strong>save lives</strong> and improve heart health for people worldwide.
-        </p>
-        
-        <Link href="/contact">
-          <button className="mt-6 px-6 py-3 bg-sky-600 text-white font-semibold rounded-lg shadow-md hover:bg-sky-700 transition duration-300">
-            Book an Appointment
+        <div className="flex items-center gap-3 mt-6">
+          <button className="flex items-center gap-2 px-5 py-2 rounded-full bg-gray-900 text-white hover:bg-gray-800 transition font-medium text-sm">
+            Book Appointment <ArrowRight size={16} />
           </button>
-        </Link>
-      </motion.div>
-    </section>
-  );
-};
+          <p className="text-sm text-gray-500">We proudly serve with care and trust.</p>
+        </div>
+      </div>
 
-export default AboutDoctor;
+      {/* Right Image and Details */}
+      <div className="relative mt-12 lg:mt-0 w-full max-w-sm lg:max-w-md">
+        {/* Geometric Background Shapes */}
+        <div className="absolute -left-6 -top-6 w-24 h-24 bg-purple-200 rounded-full z-0" />
+        <div className="absolute -right-8 -bottom-8 w-32 h-32 bg-teal-100 rounded-full z-0" />
+        <div className="absolute left-12 top-16 w-24 h-24 bg-yellow-100 rounded-full z-0" />
+
+        {/* Doctor Image */}
+        <div className="relative z-10 overflow-hidden rounded-xl shadow-xl">
+          <Image
+            src="/doctorvivek.jpg" // Replace with actual image
+            alt="Dr. Vivek Sharma"
+            width={400}
+            height={500}
+            className="object-cover grayscale"
+          />
+        </div>
+
+        {/* OUR EXPERTISE - Move this above the image in z-index */}
+        <div className="absolute bottom-4 right-4 bg-white px-4 py-3 rounded-lg shadow z-20 text-sm text-right">
+          <p className="text-xs text-gray-400">OUR EXPERTISE</p>
+          <p className="font-medium">LASIK / Cataract / Retina</p>
+        </div>
+      </div>
+    </motion.div>
+  );
+}
+
+
