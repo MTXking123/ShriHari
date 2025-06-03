@@ -1,8 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
-import FlipCard from "@/components/Flipper/Flipper";
-import DetailCard from "@/components/Flipper/Detailcard";
+import { motion } from "framer-motion";
 
 const services = [
   {
@@ -61,34 +60,75 @@ const services = [
 ];
 
 const Services = () => {
-  const [selectedService, setSelectedService] = useState(null);
+const [selectedServiceIndex, setSelectedServiceIndex] = useState(null);
+
 
   return (
-    <section id="services" className="py-16 px-4 sm:px-8 lg:px-16 relative">
-      <div className="max-w-6xl mx-auto">
-        <h2 className="text-3xl sm:text-4xl font-bold text-center mb-12 text-sky-700">
-          Our Specialities
-        </h2>
+ <section id="services" className="py-16 px-4 sm:px-8 lg:px-16 relative overflow-hidden">
+      {/* 🌈 Background Animation */}
+      <motion.div
+        className="absolute inset-0 bg-gradient-to-r from-sky-200 via-white to-pink-100 opacity-50 z-0"
+        animate={{ scale: [1, 1.2, 1] }}
+        transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
+      />
+      <motion.div
+        className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(255,255,255,0.6)_0%,rgba(173,216,230,0.2)_70%)] z-0"
+        animate={{ rotate: [0, 360] }}
+        transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
+      />
 
-        <div className="flex space-x-4 overflow-x-auto sm:grid sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:overflow-visible no-scrollbar">
-          {services.map((service, index) => (
-            <div key={index} className="flex-shrink-0 w-64 sm:w-auto px-2">
-              <FlipCard
-                title={service.title}
-                image={service.image}
-                onClick={() => setSelectedService(service)}
-              />
-            </div>
-          ))}
+      {/* 🌟 Foreground Content */}
+      <div className="relative z-10 max-w-6xl mx-auto text-center">
+        <h2 className="text-4xl font-bold text-sky-700 mb-12">Our Specialities</h2>
+
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+          {services.map((service, index) => {
+            const isActive = selectedServiceIndex === index;
+            const isBlurred = selectedServiceIndex !== null && !isActive;
+
+            return (
+              <div
+                key={index}
+                className={`relative transition-all duration-300 transform bg-white shadow-md rounded-xl p-6 flex flex-col items-center text-center
+                  ${isActive ? "row-span-2 z-10" : ""}
+                  ${isBlurred ? "blur-sm opacity-50 pointer-events-none" : ""}
+                `}
+              >
+                <img
+                  src={service.image}
+                  alt={service.title}
+                  className="w-24 h-24 object-cover rounded-full mb-4"
+                />
+                <h3 className="text-xl font-semibold text-sky-700 mb-2">{service.title}</h3>
+                <p className="text-gray-600 mb-4">{service.description}</p>
+
+                {isActive && (
+                  <div className="text-left w-full mt-2">
+                    {service.details.length > 0 ? (
+                      <ul className="list-disc list-inside text-gray-600 space-y-1">
+                        {service.details.map((item, i) => (
+                          <li key={i}>{item}</li>
+                        ))}
+                      </ul>
+                    ) : (
+                      <p className="text-gray-500 italic">No additional details.</p>
+                    )}
+                  </div>
+                )}
+
+                <button
+                  className="mt-4 px-4 py-2 bg-sky-600 text-white rounded-full text-sm hover:bg-sky-700 transition"
+                  onClick={() =>
+                    isActive ? setSelectedServiceIndex(null) : setSelectedServiceIndex(index)
+                  }
+                >
+                  {isActive ? "Close" : "More"}
+                </button>
+              </div>
+            );
+          })}
         </div>
       </div>
-
-      {selectedService && (
-        <DetailCard
-          service={selectedService}
-          onClose={() => setSelectedService(null)}
-        />
-      )}
     </section>
   );
 };

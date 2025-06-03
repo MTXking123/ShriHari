@@ -38,7 +38,7 @@ export default function Contact() {
 
         {/* Rotating Radial Light */}
         <motion.div
-          className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(255,255,255,0.4)_0%,rgba(255,255,255,0)_70%)]"
+          className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(255,255,255,0.6)_0%,rgba(173,216,230,0.2)_70%)] z-0"
           animate={{ rotate: [0, 360] }}
           transition={{ duration: 25, repeat: Infinity, ease: 'linear' }}
         />

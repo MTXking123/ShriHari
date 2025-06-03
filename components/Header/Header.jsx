@@ -122,7 +122,7 @@ const Header = () => {
             >
               Services
             </Link>
-            <div className="absolute top-full left-0 mt-2 hidden group-hover:block bg-white border rounded-lg shadow-lg w-[300px] z-50">
+            <div className="absolute top-full left-0 mt-2 hidden group-hover:block bg-white border rounded-lg shadow-lg w-[300px] z-50 max-h-80 overflow-y-auto">
               {servicesList.map((service) => (
                 <div key={service.category} className="border-b last:border-b-0 px-4 py-2">
                   <p className="font-semibold text-sky-700">{service.category}</p>
