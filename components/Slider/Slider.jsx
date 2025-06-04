@@ -14,8 +14,6 @@ const images = [
   './slide1.png',
   './slide2.png',
   './slide3.png',
-  './slide4.png',
-  './slide5.png'
 ];
 
 const FuturisticCarousel = () => {

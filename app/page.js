@@ -54,14 +54,14 @@ export default function Home() {
           <Services />
         </motion.div>
 
-        <motion.div
-          variants={fadeUpVariant}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
-        >
-          <Hero />
-        </motion.div>
+<motion.div
+  initial={{ opacity: 0 }}
+  whileInView={{ opacity: 1 }}
+  viewport={{ once: true, amount: 0.2 }}
+>
+  <Hero />
+</motion.div>
+
 
         <motion.div
           variants={fadeUpVariant}

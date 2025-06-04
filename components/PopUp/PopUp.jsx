@@ -25,7 +25,7 @@ export default function ContactPopup() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
-          className="fixed top-[2.5%] left-[50%] translate-x-[-50%]  z-50 flex items-center justify-center"
+          className="fixed top-[2.5%] left-[50%] translate-x-[-50%]  z-50 flex items-center justify-center w-full"
         >
           <motion.div
             initial={{ scale: 0.95, opacity: 0 }}

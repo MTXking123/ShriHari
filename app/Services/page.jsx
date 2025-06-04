@@ -7,13 +7,13 @@ const services = [
   {
     title: "Cataract Services",
     description: "Advanced cataract surgeries including robotic options.",
-    image: "/cataract.jpg",
+    image: "/cataract.png",
     details: ["MICS Foldable ICL", "FLACS (ROBOTIC) Foldable ICL"],
   },
   {
     title: "Refractive Services",
     description: "Vision correction procedures with cutting-edge technology.",
-    image: "/laser.jpg",
+    image: "/laser.png",
     details: [
       "LASIK", "EPI-LASIK", "PRK", "CONTURA VISION",
       "SILK", "SMILE", "ICL (Implantable Collamer Lens)",
@@ -22,7 +22,7 @@ const services = [
   {
     title: "Cornea Services",
     description: "Specialized treatments for corneal conditions.",
-    image: "/cornea.jpg",
+    image: "/cornea.png",
     details: [
       "Collagen Cross Linking (C3R)",
       "Scleral Contact Lens",
@@ -32,25 +32,25 @@ const services = [
   {
     title: "Retina Services",
     description: "Comprehensive diagnostic and therapeutic retina care.",
-    image: "/retina.jpg",
+    image: "/retina.png",
     details: ["Diagnostic & Therapeutic Retina Services"],
   },
   {
     title: "Glaucoma Services",
     description: "Management and treatment for glaucoma.",
-    image: "/glaucoma.jpg",
+    image: "/glaucoma.png",
     details: [],
   },
   {
     title: "Pediatric Ophthalmology",
     description: "Eye care for children and infants.",
-    image: "/pediatric.jpg",
+    image: "/pediatric.png",
     details: ["Myopia Clinic", "Squint Clinic"],
   },
   {
     title: "Oculoplasty Services",
     description: "Cosmetic and functional eye plastic surgeries.",
-    image: "/oculoplasty.jpg",
+    image: "/oculoplasty.png",
     details: [
       "Ptosis",
       "Blepharoplasty",
