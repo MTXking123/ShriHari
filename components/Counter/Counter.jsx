@@ -4,8 +4,9 @@ import { motion } from 'framer-motion';
 
 const stats = [
   { number: 17, suffix: '+', label: 'Years of Experience' },
-  { number: 40000, suffix: '+', label: 'Specialized Services' },
-  { number: 10000, suffix: '+', label: 'Surgeries Delivered' },
+  { number: 60000, suffix: '+', label: 'Satisfied Patients' },
+  { number: 53629, suffix: '+', label: 'Surgeries Delivered' },
+  { number: 5, suffix: '', label: 'Number of Centre' },
 ];
 
 function CounterItem({ number, suffix, label, duration = 2 }) {
@@ -26,7 +27,7 @@ function CounterItem({ number, suffix, label, duration = 2 }) {
   }, [number, duration]);
 
   return (
-    <div className="flex flex-col items-center text-sky-700">
+    <div className="flex flex-col items-center bg-gradient-to-r from-sky-800 to-sky-400  bg-clip-text text-transparent ">
       <motion.span
         className="text-4xl font-bold"
         initial={{ opacity: 0 }}
@@ -42,7 +43,7 @@ function CounterItem({ number, suffix, label, duration = 2 }) {
 
 export default function AnimatedCounterGroup() {
   return (
-    <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 text-center py-12">
+    <div className="grid grid-cols-1 sm:grid-cols-4 gap-8 text-center py-30">
       {stats.map((stat, index) => (
         <CounterItem
           key={index}

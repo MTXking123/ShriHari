@@ -9,6 +9,7 @@ import AnimatedCounter from "../components/Counter/Counter"
 import Slider from "../components/Slider/Slider";
 import { motion } from "framer-motion";
 import AppointmentPopup from "../components/PopUp/PopUp";
+import ChooseUs from "@/components/ChooseUs/ChooseUs";
 
 
 // Animation variants
@@ -60,6 +61,14 @@ export default function Home() {
   viewport={{ once: true, amount: 0.2 }}
 >
   <Hero />
+</motion.div>
+
+<motion.div
+  initial={{ opacity: 0 }}
+  whileInView={{ opacity: 1 }}
+  viewport={{ once: true, amount: 0.2 }}
+>
+  <ChooseUs />
 </motion.div>
 
 

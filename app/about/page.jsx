@@ -1,5 +1,7 @@
 'use client';
 import { motion } from 'framer-motion';
+import Image from 'next/image';
+import Link from 'next/link';
 
 const doctors = [
   {
@@ -19,9 +21,69 @@ const doctors = [
   },
 ];
 
+const features = [
+  {
+    title: 'Tailored to Your Vision',
+    desc: 'Fully customizable design, giving you complete control over how your app looks and functions.',
+  },
+  {
+    title: 'Drag-and-Drop Interface',
+    desc: 'Simple, intuitive drag-and-drop components to create and design your app without any coding knowledge.',
+  },
+  {
+    title: 'No Code Required',
+    desc: 'Build and automate your app easily without the need for programming, making app creation accessible to everyone.',
+  },
+  {
+    title: 'Scalable Solutions',
+    desc: 'Designed to scale with your business, ensuring that your app grows and adapts as your needs evolve.',
+  },
+  {
+    title: 'Seamless Integrations',
+    desc: 'Easily integrate with third-party apps and services to enhance functionality without complications.',
+  },
+];
+
 export default function About() {
   return (
-    <section className="py-16 relative overflow-hidden">
+    <section className="py-16 relative overflow-hidden bg-white">
+      {/* 👨‍⚕️ Dr. Vivek Sharma Section */}
+      <div className="relative z-10 max-w-6xl mx-auto px-4 mb-24 flex flex-col lg:flex-row items-center gap-12">
+        <motion.div
+          className="relative w-full lg:w-1/2"
+          initial={{ opacity: 0, x: -30 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.6 }}
+        >
+          <div className="relative rounded-xl overflow-hidden shadow-lg w-full max-w-md mx-auto">
+            <Image
+              src="/doctorvivek.jpg"
+              alt="Dr. Vivek Sharma"
+              width={500}
+              height={500}
+              className="rounded-xl object-cover"
+            />
+          </div>
+        </motion.div>
+
+        <motion.div
+          className="w-full lg:w-1/2"
+          initial={{ opacity: 0, x: 30 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.6 }}
+        >
+          <h2 className="text-3xl md:text-4xl font-bold text-sky-800 mb-4">
+            About Dr. Vivek Sharma
+          </h2>
+          <p className="text-gray-700 text-base leading-relaxed mb-4">
+            Dr. Vivek Sharma, the founder and CEO of Shrihari Eye Care & Laser Centre, is a visionary leader and expert eye specialist. With a mission to restore vision and improve lives, he has successfully treated over <strong>40,000+</strong> patients through cutting-edge eye care solutions.
+          </p>
+          <div className="bg-sky-50 p-4 rounded-lg shadow text-sm italic text-gray-700 mb-4">
+            “We believe that everyone deserves to see the world clearly. My goal is to make that possible with compassion and the latest in eye care technology.” — <strong>Dr. Vivek Sharma</strong>
+          </div>
+        </motion.div>
+      </div>
+
       {/* 🌈 Background Animations */}
       <motion.div
         className="absolute inset-0 bg-gradient-to-r from-sky-50 via-white to-pink-50 opacity-50 z-0"
@@ -79,28 +141,7 @@ export default function About() {
         </motion.p>
 
         <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-          {[
-            {
-              title: 'Tailored to Your Vision',
-              desc: 'Fully customizable design, giving you complete control over how your app looks and functions.',
-            },
-            {
-              title: 'Drag-and-Drop Interface',
-              desc: 'Simple, intuitive drag-and-drop components to create and design your app without any coding knowledge.',
-            },
-            {
-              title: 'No Code Required',
-              desc: 'Build and automate your app easily without the need for programming, making app creation accessible to everyone.',
-            },
-            {
-              title: 'Scalable Solutions',
-              desc: 'Designed to scale with your business, ensuring that your app grows and adapts as your needs evolve.',
-            },
-            {
-              title: 'Seamless Integrations',
-              desc: 'Easily integrate with third-party apps and services to enhance functionality without complications.',
-            },
-          ].map((item, index) => (
+          {features.map((item, index) => (
             <motion.div
               key={index}
               className="bg-white rounded-xl p-6 shadow-md hover:shadow-xl transition duration-300"

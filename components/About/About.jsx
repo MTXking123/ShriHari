@@ -2,6 +2,7 @@
 import Image from 'next/image';
 import { motion } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
+import Link from 'next/link';
 
 export default function AboutDrVivekMinimal() {
   return (
@@ -20,9 +21,11 @@ export default function AboutDrVivekMinimal() {
         </p>
 
         <div className="flex items-center gap-3 mt-6">
-          <button className="flex items-center gap-2 px-5 py-2 rounded-full bg-gray-900 text-white hover:bg-gray-800 transition font-medium text-sm">
-            Book Appointment <ArrowRight size={16} />
-          </button>
+          <Link href="/about#dr-vivek">
+            <button className="flex items-center gap-2 px-5 py-2 rounded-full bg-gray-900 text-white hover:bg-gray-800 transition font-medium text-sm">
+              Read More <ArrowRight size={16} />
+            </button>
+          </Link>
           <p className="text-sm text-gray-500">We proudly serve with care and trust.</p>
         </div>
       </div>
@@ -37,15 +40,15 @@ export default function AboutDrVivekMinimal() {
         {/* Doctor Image */}
         <div className="relative z-10 overflow-hidden rounded-xl shadow-xl">
           <Image
-            src="/doctorvivek.jpg" // Replace with actual image
+            src="/doctorvivek.jpg"
             alt="Dr. Vivek Sharma"
             width={400}
             height={500}
-            className="object-cover grayscale"
+            className="object-cover"
           />
         </div>
 
-        {/* OUR EXPERTISE - Move this above the image in z-index */}
+        {/* OUR EXPERTISE */}
         <div className="absolute bottom-4 right-4 bg-white px-4 py-3 rounded-lg shadow z-20 text-sm text-right">
           <p className="text-xs text-gray-400">OUR EXPERTISE</p>
           <p className="font-medium">LASIK / Cataract / Retina</p>
@@ -54,5 +57,6 @@ export default function AboutDrVivekMinimal() {
     </motion.div>
   );
 }
+
 
 
