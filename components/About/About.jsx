@@ -21,7 +21,7 @@ export default function AboutDrVivekMinimal() {
         </p>
 
         <div className="flex items-center gap-3 mt-6">
-          <Link href="/about#dr-vivek">
+          <Link href="/about#doctor-vivek">
             <button className="flex items-center gap-2 px-5 py-2 rounded-full bg-gray-900 text-white hover:bg-gray-800 transition font-medium text-sm">
               Read More <ArrowRight size={16} />
             </button>

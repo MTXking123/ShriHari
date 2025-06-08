@@ -22,26 +22,8 @@ export default function Contact() {
 
   return (
     <AnimatePresence>
-      <motion.div
-        key="contact-page"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        exit={{ opacity: 0 }}
-        className="relative min-h-screen flex items-center justify-center px-4 overflow-hidden bg-white font-inter"
-      >
-        {/* Animated Gradient Background */}
-        <motion.div
-          className="absolute inset-0 bg-gradient-to-r from-sky-300 via-purple-200 to-pink-200 opacity-30"
-          animate={{ scale: [1, 1.2, 1] }}
-          transition={{ duration: 6, repeat: Infinity, ease: 'easeInOut' }}
-        />
 
-        {/* Rotating Radial Light */}
-        <motion.div
-          className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(255,255,255,0.4)_0%,rgba(255,255,255,0)_70%)]"
-          animate={{ rotate: [0, 360] }}
-          transition={{ duration: 25, repeat: Infinity, ease: 'linear' }}
-        />
+
 
         {/* Contact Form */}
         <motion.div
@@ -102,7 +84,7 @@ export default function Contact() {
             </motion.button>
           </form>
         </motion.div>
-      </motion.div>
+      
     </AnimatePresence>
   );
 }

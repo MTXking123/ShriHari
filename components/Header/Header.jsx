@@ -102,7 +102,7 @@ const Header = () => {
         />
 
         <div className="hidden md:flex flex-grow justify-center space-x-10 items-center text-lg">
-          {[{ name: "Home", href: "/" }, { name: "About", href: "/about" }, { name: "Contact", href: "/contact" }].map((link, i) => (
+          {[{ name: "Home", href: "/" }, { name: "About", href: "/about" }, { name: "Contact", href: "/contact" }, { name: "Our Branches", href: "/OurBranches" }].map((link, i) => (
             <motion.div key={link.href} custom={i} variants={linkVariants} initial="hidden" animate="visible">
               <Link
                 href={link.href}
@@ -158,7 +158,7 @@ const Header = () => {
             exit="exit"
             className="md:hidden bg-white shadow-md overflow-hidden"
           >
-            {[{ name: "Home", href: "/" }, { name: "Services", href: "/Services" }, { name: "About", href: "/about" }, { name: "Contact", href: "/contact" }].map((link, i) => (
+            {[{ name: "Home", href: "/" }, { name: "Services", href: "/Services" }, { name: "About", href: "/about" }, { name: "Contact", href: "/contact" },{ name: "Our Branches", href: "/Our" }].map((link, i) => (
               <motion.div
                 key={link.href}
                 custom={i}
