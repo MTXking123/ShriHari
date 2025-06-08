@@ -1,7 +1,7 @@
-'use client';
-import React, { useEffect, useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import Contact from '../Contact/Contact'; // adjust path if needed
+"use client";
+import React, { useEffect, useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import Contact from "../Contact/Contact"; // adjust path if needed
 
 export default function ContactPopup() {
   const [show, setShow] = useState(false);
@@ -11,7 +11,6 @@ export default function ContactPopup() {
     setShow(true);
 
     // Show every 15 seconds
-
 
     return () => clearInterval();
   }, []);
@@ -47,4 +46,3 @@ export default function ContactPopup() {
     </AnimatePresence>
   );
 }
-

@@ -1,20 +1,16 @@
-'use client';
+"use client";
 
-import { Swiper, SwiperSlide } from 'swiper/react';
-import { EffectFade, Autoplay, Navigation, Pagination } from 'swiper/modules';
-import 'swiper/css';
-import 'swiper/css/effect-fade';
-import 'swiper/css/navigation';
-import 'swiper/css/pagination';
-import { motion } from 'framer-motion';
-import WhatsAppButton from '../WhatsappButton/WhatsappButton';
-import AppointmentPopup from "../../components/PopUp/PopUp"
+import { Swiper, SwiperSlide } from "swiper/react";
+import { EffectFade, Autoplay, Navigation, Pagination } from "swiper/modules";
+import "swiper/css";
+import "swiper/css/effect-fade";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
+import { motion } from "framer-motion";
+import WhatsAppButton from "../WhatsappButton/WhatsappButton";
+import AppointmentPopup from "../../components/PopUp/PopUp";
 
-const images = [
-  './slide1.png',
-  './slide2.png',
-  './slide3.png',
-];
+const images = ["./slide1.png", "./slide2.png", "./slide3.png"];
 
 const FuturisticCarousel = () => {
   return (
@@ -34,8 +30,8 @@ const FuturisticCarousel = () => {
           autoplay={{ delay: 3000, disableOnInteraction: false }}
           fadeEffect={{ crossFade: true }}
           navigation={{
-            nextEl: '.swiper-button-next',
-            prevEl: '.swiper-button-prev'
+            nextEl: ".swiper-button-next",
+            prevEl: ".swiper-button-prev",
           }}
           pagination={{ clickable: true }}
           modules={[EffectFade, Autoplay, Navigation, Pagination]}
@@ -63,11 +59,9 @@ const FuturisticCarousel = () => {
       <div className="absolute bottom-6 right-6 z-50">
         <WhatsAppButton />
       </div>
-       <AppointmentPopup />
-      
+      <AppointmentPopup />
     </div>
   );
 };
 
 export default FuturisticCarousel;
-

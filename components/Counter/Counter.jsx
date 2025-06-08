@@ -1,12 +1,12 @@
-'use client';
-import { useEffect, useState } from 'react';
-import { motion } from 'framer-motion';
+"use client";
+import { useEffect, useState } from "react";
+import { motion } from "framer-motion";
 
 const stats = [
-  { number: 17, suffix: '+', label: 'Years of Experience' },
-  { number: 60000, suffix: '+', label: 'Satisfied Patients' },
-  { number: 53629, suffix: '+', label: 'Surgeries Delivered' },
-  { number: 5, suffix: '', label: 'Number of Centre' },
+  { number: 17, suffix: "+", label: "Years of Experience" },
+  { number: 60000, suffix: "+", label: "Satisfied Patients" },
+  { number: 53629, suffix: "+", label: "Surgeries Delivered" },
+  { number: 5, suffix: "", label: "Number of Centre" },
 ];
 
 function CounterItem({ number, suffix, label, duration = 2 }) {
@@ -34,7 +34,8 @@ function CounterItem({ number, suffix, label, duration = 2 }) {
         animate={{ opacity: 1 }}
         transition={{ duration: 0.5 }}
       >
-        {Math.floor(count).toLocaleString()}{suffix}
+        {Math.floor(count).toLocaleString()}
+        {suffix}
       </motion.span>
       <span className="text-lg">{label}</span>
     </div>

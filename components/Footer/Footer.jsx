@@ -10,6 +10,18 @@ import {
 } from 'react-icons/fa';
 
 const Footer = () => {
+
+  const XIcon = () => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 1200 1227"
+    fill="currentColor"
+    className="w-6 h-5"
+  >
+    <path d="M1133 0H944L603 426 262 0H0l479 612L0 1227h189l360-482 360 482h192L712 612 1133 0z" />
+  </svg>
+);
+
   return (
     <footer className="bg-gray-900 text-gray-300 pt-10 pb-6 px-6 md:px-20 mt-10">
       <div className="flex flex-col md:flex-row justify-between gap-10">
@@ -46,19 +58,17 @@ const Footer = () => {
         <div className="w-full md:w-1/3">
           <h2 className="text-xl font-semibold mb-4">Connect With Us</h2>
           <p className="mb-4">Follow us on social media for updates and more.</p>
-          <div className="flex gap-4 text-xl">
-            <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="hover:text-white"><FaFacebookF /></a>
-            <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" className="hover:text-white"><FaTwitter /></a>
-            <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="hover:text-white"><FaInstagram /></a>
-            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="hover:text-white"><FaLinkedinIn /></a>
-            <a href="https://github.com" target="_blank" rel="noopener noreferrer" className="hover:text-white"><FaGithub /></a>
+          <div className="flex gap-4 text-xl ">
+            <a href="https://www.facebook.com/share/1BrkKBqijf/" target="_blank" rel="noopener noreferrer" className="hover:text-white"><FaFacebookF /></a>
+            <a href="https://x.com/shriharieyecare " target="_blank" rel="noopener noreferrer" className="hover:text-white"><XIcon /> </a>
+            <a href="https://www.instagram.com/shriharieyecarecentre_?igsh=cmVmNDc1NXdxcDcy" target="_blank" rel="noopener noreferrer" className="hover:text-white"><FaInstagram /></a>
           </div>
         </div>
       </div>
 
       {/* Bottom note */}
       <div className="mt-10 border-t border-gray-700 pt-4 text-sm text-center">
-        &copy; {new Date().getFullYear()} YourCompany. All rights reserved.
+        &copy; {new Date().getFullYear()} ShrihariEyeCare&LaserCentre. All rights reserved.
       </div>
     </footer>
   );

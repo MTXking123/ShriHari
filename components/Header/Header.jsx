@@ -8,7 +8,7 @@ import { motion, AnimatePresence } from "framer-motion";
 
 const navVariants = {
   hidden: { opacity: 0, y: -50 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" } }
+  visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" } },
 };
 
 const linkVariants = {
@@ -16,20 +16,24 @@ const linkVariants = {
   visible: (i) => ({
     opacity: 1,
     y: 0,
-    transition: { delay: i * 0.1, duration: 0.3 }
-  })
+    transition: { delay: i * 0.1, duration: 0.3 },
+  }),
 };
 
 const mobileMenuVariants = {
   hidden: { opacity: 0, height: 0 },
-  visible: { opacity: 1, height: "auto", transition: { duration: 0.3, ease: "easeOut" } },
-  exit: { opacity: 0, height: 0, transition: { duration: 0.2 } }
+  visible: {
+    opacity: 1,
+    height: "auto",
+    transition: { duration: 0.3, ease: "easeOut" },
+  },
+  exit: { opacity: 0, height: 0, transition: { duration: 0.2 } },
 };
 
 const servicesList = [
   {
     category: "Cataract Services",
-    links: ["MICS Foldable ICL", "FLACS(ROBOTIC) Foldable ICL"]
+    links: ["MICS Foldable ICL", "FLACS(ROBOTIC) Foldable ICL"],
   },
   {
     category: "Referactive Services",
@@ -37,33 +41,37 @@ const servicesList = [
       "LASIK | EPI-LASIK | PRK",
       "CONTURA VISION",
       "SILK | SMILE",
-      "ICL (Implantable Collamer Lens)"
-    ]
+      "ICL (Implantable Collamer Lens)",
+    ],
   },
   {
     category: "CORNEA SERVICES",
     links: [
       "Collagen Cross Linking (C3R)",
       "Scleral Contact Lens",
-      "Corneal Transplant (PK, DSEK, DALK)"
-    ]
+      "Corneal Transplant (PK, DSEK, DALK)",
+    ],
   },
   {
     category: "Retina Services",
-    links: ["Diagnostic & Therapeutic"]
+    links: ["Diagnostic & Therapeutic"],
   },
   {
     category: "Glaucoma Services",
-    links: []
+    links: [],
   },
   {
     category: "Paldiatric Opthalmology",
-    links: ["Myopia clinic", "Squint clinic"]
+    links: ["Myopia clinic", "Squint clinic"],
   },
   {
     category: "Oculoplasty Services",
-    links: ["Ptosis", "Blepheroplasty", "Laerimal gland & Laerimal duet diseases"]
-  }
+    links: [
+      "Ptosis",
+      "Blepheroplasty",
+      "Laerimal gland & Laerimal duet diseases",
+    ],
+  },
 ];
 
 const Header = () => {
@@ -88,7 +96,9 @@ const Header = () => {
       initial="hidden"
       animate="visible"
       className={`top-0 left-0 w-full z-50 ${
-        isScrolled ? "bg-white/90 shadow-lg backdrop-blur-md" : "bg-white shadow-md"
+        isScrolled
+          ? "bg-white/90 shadow-lg backdrop-blur-md"
+          : "bg-white shadow-md"
       }`}
     >
       <div className="container mx-auto px-6 py-4 flex justify-between items-center">
@@ -102,8 +112,19 @@ const Header = () => {
         />
 
         <div className="hidden md:flex flex-grow justify-center space-x-10 items-center text-lg">
-          {[{ name: "Home", href: "/" }, { name: "About", href: "/about" }, { name: "Contact", href: "/contact" }, { name: "Our Branches", href: "/OurBranches" }].map((link, i) => (
-            <motion.div key={link.href} custom={i} variants={linkVariants} initial="hidden" animate="visible">
+          {[
+            { name: "Home", href: "/" },
+            { name: "About", href: "/about" },
+            { name: "Contact", href: "/contact" },
+            { name: "Our Branches", href: "/OurBranches" },
+          ].map((link, i) => (
+            <motion.div
+              key={link.href}
+              custom={i}
+              variants={linkVariants}
+              initial="hidden"
+              animate="visible"
+            >
               <Link
                 href={link.href}
                 className="text-gray-700 hover:text-sky-700 transition duration-300 font-medium"
@@ -124,13 +145,20 @@ const Header = () => {
             </Link>
             <div className="absolute top-full left-0 mt-2 hidden group-hover:block bg-white border rounded-lg shadow-lg w-[300px] z-50 max-h-80 overflow-y-auto">
               {servicesList.map((service) => (
-                <div key={service.category} className="border-b last:border-b-0 px-4 py-2">
-                  <p className="font-semibold text-sky-700">{service.category}</p>
+                <div
+                  key={service.category}
+                  className="border-b last:border-b-0 px-4 py-2"
+                >
+                  <p className="font-semibold text-sky-700">
+                    {service.category}
+                  </p>
                   <ul className="pl-4 mt-1 space-y-1">
                     {service.links.map((sub, i) => (
                       <li key={i}>
                         <Link
-                          href={`/Services/${sub.toLowerCase().replace(/\s|\|/g, "-")}`}
+                          href={`/Services/${sub
+                            .toLowerCase()
+                            .replace(/\s|\|/g, "-")}`}
                           className="text-gray-600 hover:text-blue-600 text-sm"
                         >
                           {sub}
@@ -144,7 +172,10 @@ const Header = () => {
           </div>
         </div>
 
-        <button className="md:hidden text-gray-600" onClick={() => setIsOpen(!isOpen)}>
+        <button
+          className="md:hidden text-gray-600"
+          onClick={() => setIsOpen(!isOpen)}
+        >
           {isOpen ? <FiX size={24} /> : <FiMenu size={24} />}
         </button>
       </div>
@@ -158,7 +189,13 @@ const Header = () => {
             exit="exit"
             className="md:hidden bg-white shadow-md overflow-hidden"
           >
-            {[{ name: "Home", href: "/" }, { name: "Services", href: "/Services" }, { name: "About", href: "/about" }, { name: "Contact", href: "/contact" },{ name: "Our Branches", href: "/Our" }].map((link, i) => (
+            {[
+              { name: "Home", href: "/" },
+              { name: "Services", href: "/Services" },
+              { name: "About", href: "/about" },
+              { name: "Contact", href: "/contact" },
+              { name: "Our Branches", href: "/Our" },
+            ].map((link, i) => (
               <motion.div
                 key={link.href}
                 custom={i}

@@ -31,7 +31,9 @@ const DetailCard = ({ service, onClose }) => {
 
         {/* Text */}
         <div className="w-full sm:w-1/2 flex flex-col justify-center items-center sm:items-start text-center sm:text-left">
-          <h3 className="text-2xl font-bold text-sky-700 mb-4">{service.title}</h3>
+          <h3 className="text-2xl font-bold text-sky-700 mb-4">
+            {service.title}
+          </h3>
           <p className="text-gray-700">{service.description}</p>
         </div>
       </div>
@@ -40,6 +42,3 @@ const DetailCard = ({ service, onClose }) => {
 };
 
 export default DetailCard;
-
-
-

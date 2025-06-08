@@ -1,6 +1,6 @@
-import React from 'react';
-import { Parallax } from 'react-parallax';
-import { motion } from 'framer-motion';
+import React from "react";
+import { Parallax } from "react-parallax";
+import { motion } from "framer-motion";
 
 const fadeUpVariant = {
   hidden: { opacity: 0, y: 40 },
@@ -23,7 +23,9 @@ const ParallaxHero = () => {
           className="bg-opacity-50 p-8 rounded-xl inline-block"
         >
           <h1 className="text-5xl font-bold">Your Health, Our Priority</h1>
-          <p className="mt-4 text-lg">Providing quality healthcare with compassion and care.</p>
+          <p className="mt-4 text-lg">
+            Providing quality healthcare with compassion and care.
+          </p>
           <a
             href="#contact"
             className="mt-6 inline-block bg-white text-sky-700 px-6 py-3 rounded-lg shadow hover:bg-gray-200"
@@ -37,4 +39,3 @@ const ParallaxHero = () => {
 };
 
 export default ParallaxHero;
-

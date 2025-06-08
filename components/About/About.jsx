@@ -1,8 +1,8 @@
-'use client';
-import Image from 'next/image';
-import { motion } from 'framer-motion';
-import { ArrowRight } from 'lucide-react';
-import Link from 'next/link';
+"use client";
+import Image from "next/image";
+import { motion } from "framer-motion";
+import { ArrowRight } from "lucide-react";
+import Link from "next/link";
 
 export default function AboutDrVivekMinimal() {
   return (
@@ -14,10 +14,16 @@ export default function AboutDrVivekMinimal() {
     >
       {/* Left Content */}
       <div className="max-w-xl space-y-6">
-        <p className="uppercase tracking-widest text-sm text-gray-400">— We Are</p>
-        <h1 className="text-4xl md:text-5xl font-bold">Shrihari Eye Care & Laser Centre</h1>
+        <p className="uppercase tracking-widest text-sm text-gray-400">
+          — We Are
+        </p>
+        <h1 className="text-4xl md:text-5xl font-bold">
+          Shrihari Eye Care & Laser Centre
+        </h1>
         <p className="text-lg text-gray-600">
-          Led by <strong>Dr. Vivek Sharma</strong>, a pioneering eye specialist delivering advanced eye surgeries, compassionate consultations, and trusted vision care to over <strong>40,000+ patients</strong>.
+          Led by <strong>Dr. Vivek Sharma</strong>, a pioneering eye specialist
+          delivering advanced eye surgeries, compassionate consultations, and
+          trusted vision care to over <strong>40,000+ patients</strong>.
         </p>
 
         <div className="flex items-center gap-3 mt-6">
@@ -26,7 +32,9 @@ export default function AboutDrVivekMinimal() {
               Read More <ArrowRight size={16} />
             </button>
           </Link>
-          <p className="text-sm text-gray-500">We proudly serve with care and trust.</p>
+          <p className="text-sm text-gray-500">
+            We proudly serve with care and trust.
+          </p>
         </div>
       </div>
 
@@ -57,6 +65,3 @@ export default function AboutDrVivekMinimal() {
     </motion.div>
   );
 }
-
-
-

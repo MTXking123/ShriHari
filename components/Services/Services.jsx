@@ -15,8 +15,13 @@ const services = [
     description: "Vision correction procedures with cutting-edge technology.",
     image: "/laser.png",
     details: [
-      "LASIK", "EPI-LASIK", "PRK", "CONTURA VISION",
-      "SILK", "SMILE", "ICL (Implantable Collamer Lens)",
+      "LASIK",
+      "EPI-LASIK",
+      "PRK",
+      "CONTURA VISION",
+      "SILK",
+      "SMILE",
+      "ICL (Implantable Collamer Lens)",
     ],
   },
   {
@@ -60,11 +65,13 @@ const services = [
 ];
 
 const Services = () => {
-const [selectedServiceIndex, setSelectedServiceIndex] = useState(null);
-
+  const [selectedServiceIndex, setSelectedServiceIndex] = useState(null);
 
   return (
- <section id="services" className="py-16 px-4 sm:px-8 lg:px-16 relative overflow-hidden">
+    <section
+      id="services"
+      className="py-16 px-4 sm:px-8 lg:px-16 relative overflow-hidden"
+    >
       {/* 🌈 Background Animation */}
       <motion.div
         className="absolute inset-0 bg-gradient-to-r from-sky-200 via-white to-pink-100 opacity-50 z-0"
@@ -74,7 +81,9 @@ const [selectedServiceIndex, setSelectedServiceIndex] = useState(null);
 
       {/* 🌟 Foreground Content */}
       <div className="relative z-10 max-w-6xl mx-auto text-center">
-        <h2 className="text-4xl font-bold bg-gradient-to-r from-sky-800 to-sky-400  bg-clip-text text-transparent mb-12">Our Specialities</h2>
+        <h2 className="text-4xl font-bold bg-gradient-to-r from-sky-800 to-sky-400  bg-clip-text text-transparent mb-12">
+          Our Specialities
+        </h2>
 
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
           {services.map((service, index) => {
@@ -94,7 +103,9 @@ const [selectedServiceIndex, setSelectedServiceIndex] = useState(null);
                   alt={service.title}
                   className="w-24 h-24 object-cover rounded-full mb-4"
                 />
-                <h3 className="text-xl font-semibold text-sky-700 mb-2">{service.title}</h3>
+                <h3 className="text-xl font-semibold text-sky-700 mb-2">
+                  {service.title}
+                </h3>
                 <p className="text-gray-600 mb-4">{service.description}</p>
 
                 {isActive && (
@@ -106,7 +117,9 @@ const [selectedServiceIndex, setSelectedServiceIndex] = useState(null);
                         ))}
                       </ul>
                     ) : (
-                      <p className="text-gray-500 italic">No additional details.</p>
+                      <p className="text-gray-500 italic">
+                        No additional details.
+                      </p>
                     )}
                   </div>
                 )}
@@ -114,7 +127,9 @@ const [selectedServiceIndex, setSelectedServiceIndex] = useState(null);
                 <button
                   className="mt-4 px-4 py-2 bg-sky-600 text-white rounded-full text-sm hover:bg-sky-700 transition"
                   onClick={() =>
-                    isActive ? setSelectedServiceIndex(null) : setSelectedServiceIndex(index)
+                    isActive
+                      ? setSelectedServiceIndex(null)
+                      : setSelectedServiceIndex(index)
                   }
                 >
                   {isActive ? "Close" : "More"}
