@@ -55,10 +55,6 @@ const FuturisticCarousel = () => {
         </Swiper>
       </motion.div>
 
-      {/* ✅ WhatsApp Button positioned absolutely in bottom-right of carousel */}
-      <div className="absolute bottom-6 right-6 z-50">
-        <WhatsAppButton />
-      </div>
       <AppointmentPopup />
     </div>
   );
