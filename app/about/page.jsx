@@ -198,6 +198,17 @@ export default function About() {
             treated over <strong>40,000+</strong> patients through cutting-edge
             eye care solutions.
           </p>
+          <li>*15+ years’ experience.</li>
+          <li>Completed his Graduation (M.B.B.S) from Dr V.M.M.C, Solapur. Completed his postgraduation from A.M.C.H in 2009.</li>
+          <li>Was awarded from Ram Labaya Memorial Gold Medal during post-graduation exams held in 2009.</li>
+          <li>Best paper awardee at Assam Ophthalmological Society Conference in 2009.</li>
+          <li>Completed Fellowship in Cornea & External Eye Diseases from prestigious L.V.P.E.I, Hyderabad.</li>
+          <li>Completed Lamellar Corneal Surgery Course at Apollo Hospital Hyderabad under the guidance of Dr Rajesh Fogla .</li>
+          <li>Worked as Cornea & refractive surgeon at I Care Eye Institute, Noida from 2013- 2018.</li>
+          <li>Worked as Phaco trainer with Alcon Phaco development Programme for Upcoming surgeons. He has trained numerous doctors in phacoemulsification.</li>
+          <li>Cornea Consultant at Eye Health Clinic, Noida.</li>
+          <li> Cornea Consultant at Radium Eye Centre, Rohini, Delhi.</li>
+          <li>Area of interest is Keratoconus Management , Lamellar surgeries (DALK ,DSAEK ,DMEK ), complex cataract surgeries and other Ocular surface disorders.</li>
           <div className="bg-sky-50 p-4 rounded-lg shadow text-sm italic text-gray-700 mb-4">
             “We believe that everyone deserves to see the world clearly. My goal
             is to make that possible with compassion and the latest in eye care
