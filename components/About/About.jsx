@@ -59,7 +59,7 @@ export default function AboutDrVivekMinimal() {
         {/* OUR EXPERTISE */}
         <div className="absolute bottom-4 right-4 bg-white px-4 py-3 rounded-lg shadow z-20 text-sm text-right">
           <p className="text-xs text-gray-400">OUR EXPERTISE</p>
-          <p className="font-medium">LASIK / Cataract / Retina</p>
+          <p className="font-medium">LASIK / Cataract / Cornea</p>
         </div>
       </div>
     </motion.div>

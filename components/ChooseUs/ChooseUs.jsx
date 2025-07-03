@@ -6,7 +6,7 @@ const ChooseUs = () => {
       <div className="max-w-7xl mx-auto">
         <h2 className="text-3xl font-semibold text-center mb-10">
           Why <span className="text-blue-800 font-bold">ShriHari</span> Eye Care
-          Center Is A Better Choice
+          Centre Is A Better Choice
         </h2>
 
         <div className="flex flex-col lg:flex-row gap-10">
